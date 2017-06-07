@@ -1,0 +1,20 @@
+<html>
+	<head> 
+		<script src = "../dist/app.bundle.js"></script>
+	</head>
+	
+	<body ng-app="heroApp">
+		<nav class="navbar navbar-inverse" role="navigation">
+			<div class="navbar-header">
+				<a class="navbar-brand" ui-sref="#">Tour Of Heroes</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a ui-sref="dashboard">Dashboard</a></li>
+				<li><a ui-sref="heroes">Heroes</a></li>
+			</ul>
+		</nav>
+		<div class = "hero-container">
+			<ui-view></ui-view>
+		</div>
+	</body>
+</html>
