@@ -1,15 +1,13 @@
 var angular = require('angular'),
 	routeProvider = require('angular-ui-router');
-	
-//var	herolistItemComponent = require("./components/heroListItem/heroListItem.component");	
-/*	herolistComponent = require("./components/heroList/heroList.component");
-
-console.log(herolistItemComponent);*/
 
 var app = angular.module("heroApp",['ui.router']);
 
-app.component('herolistitem', require("./components/heroListItem/heroListItem.component"));
-app.component('herolist', require("./components/heroList/heroList.component"));
+require("./components/heroListItem/heroListItem.component");
+require("./components/heroList/heroList.component");
+require("./components/dashboard/dashboard.component");
+require("./components/heroDetails/heroDetails.component");
+require("./services/heroService");
 		
 app.config(function($stateProvider,$urlRouterProvider){
 			
@@ -17,11 +15,15 @@ app.config(function($stateProvider,$urlRouterProvider){
 	$stateProvider
 		.state('dashboard', {
 			url: '/dashboard',
-			component:'herolistitem'
+			component:'dashboard'
 		})
 		.state('heroes', {
 			url: '/heroes',
 			component: 'herolist'
+		})
+		.state('details',{
+			url: '/details/:id',
+			component: 'herodetails'
 		});
 
 });
