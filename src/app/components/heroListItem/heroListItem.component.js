@@ -1,6 +1,7 @@
-angular.module("heroApp").component('herolistitem', {
- 
-  template:"<div>Hero list Item</div>"
-  
-});
+var heroListItemComponent = {
+	bindings: {},
+	template:"<div>Hero list Item</div>"
+}
+
+module.exports = heroListItemComponent;
   
