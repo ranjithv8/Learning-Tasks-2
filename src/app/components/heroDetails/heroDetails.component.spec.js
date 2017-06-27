@@ -8,10 +8,10 @@ describe('HeroDetailController', function() {
 
   it('should call save', function() {
     var onSaveSpy = jasmine.createSpy('saveDetails');
-    var bindings = {hero: {}, onDelete: onSaveSpy};
-    var ctrl = $componentController('heroDetails', null, bindings);
+    var bindings = {hero: {}, saveDetails: onSaveSpy};
+    var ctrl = $componentController('herodetails', null, bindings);
 
     ctrl.saveDetails();
-    expect(onDeleteSpy).toHaveBeenCalled();
+    expect(onSaveSpy).toHaveBeenCalled();
   });
 });
