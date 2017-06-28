@@ -74,6 +74,14 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity
+    concurrency: Infinity,
+    coverageReporter: {
+            includeAllSources: true,
+            dir: 'coverage/',
+            reporters: [
+                { type: "html", subdir: "html" },
+                { type: 'text-summary' }
+            ]
+        }
   })
 }
