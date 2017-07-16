@@ -2,86 +2,98 @@
 // Generated on Sat Jun 24 2017 22:32:10 GMT+0530 (India Standard Time)
 
 module.exports = function(config) {
-  config.set({
+    config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+        basePath: '',
 
 
-    // frameworks to use
-    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+        // frameworks to use
+        // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
+        frameworks: ['jasmine'],
 
 
-    // list of files / patterns to load in the browser
-    files: [
-      'dist/vendor.bundle.js',
-      'dist/app.bundle.js',
-      'node_modules/angular-mocks/angular-mocks.js',      
-      'src/app/**/*.spec.js'
-    ],
+        // list of files / patterns to load in the browser
+        files: [
+          'dist/vendor.bundle.js',
+          'dist/app.bundle.js',
+          'node_modules/angular-mocks/angular-mocks.js',      
+          'src/app/**/*.spec.js'
+        ],
 
 
-    // list of files to exclude
-    exclude: [
-    ],
+        // list of files to exclude
+        exclude: [
+        ],
 
 
-    // preprocess matching files before serving them to the browser
-    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-      '**/dist/app.bundle.js': ['coverage']
-    },
+        // preprocess matching files before serving them to the browser
+        // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+        preprocessors: {
+          '**/dist/app.bundle.js': ['coverage']
+        },
 
-    plugins: [
-      'karma-jasmine',
-      'karma-coverage',
-      'karma-chrome-launcher',
-      'karma-webpack'
-    ],
+        plugins: [
+          'karma-jasmine',
+          'karma-coverage',
+          'karma-chrome-launcher',
+          'karma-webpack',
+          'karma-mocha-reporter'
+        ],
 
-    // test results reporter to use
-    // possible values: 'dots', 'progress'
-    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress','coverage'],
-
-
-    // web server port
-    port: 9876,
+        // test results reporter to use
+        // possible values: 'dots', 'progress'
+        // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+        reporters: ['mocha','coverage'],
 
 
-    // enable / disable colors in the output (reporters and logs)
-    colors: true,
+        // web server port
+        port: 9876,
 
 
-    // level of logging
-    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+        // enable / disable colors in the output (reporters and logs)
+        colors: true,
 
 
-    // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+        // level of logging
+        // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+        logLevel: config.LOG_INFO,
 
 
-    // start these browsers
-    // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+        // enable / disable watching file and executing tests whenever any file changes
+        autoWatch: true,
 
 
-    // Continuous Integration mode
-    // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+        // start these browsers
+        // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+        browsers: ['Chrome'],
 
-    // Concurrency level
-    // how many browser should be started simultaneous
-    concurrency: Infinity,
-    coverageReporter: {
+
+        // Continuous Integration mode
+        // if true, Karma captures browsers, runs the tests and exits
+        singleRun: false,
+
+        // Concurrency level
+        // how many browser should be started simultaneous
+        concurrency: Infinity,
+        coverageReporter: {
             includeAllSources: true,
             dir: 'coverage/',
             reporters: [
                 { type: "html", subdir: "html" },
-                { type: 'text-summary' }
+                { type: 'text-summary' },
+                { type: 'text' }
             ]
+        },
+
+        mochaReporter: {
+            colors: {
+                success: 'green',
+                info: 'blue',
+                warning: 'cyan',
+                error: 'bgRed'
+            }
         }
-  })
+
+    })
 }
